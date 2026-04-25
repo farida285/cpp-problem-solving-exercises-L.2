@@ -5,9 +5,9 @@ numbers.*/
 #include <cstdlib>
 #include <ctime>
 using namespace std ;
-unsigned short ReadArrayLength (string massage,unsigned short maxlength){
+unsigned short ReadArrayLength (string message,unsigned short maxlength){
     int length ;
-    cout<<massage<<"\n";
+    cout<<message<<"\n";
     do{
         cin>> length ;
         if(length>maxlength||length<0){
