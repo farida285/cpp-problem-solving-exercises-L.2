@@ -1,0 +1,75 @@
+/*Write a program to fill array with max size 100 with random numbers from
+1 to 100, read number and print if it's found or not (reuse code in prev problem).*/
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std ;
+unsigned short ReadArrayLength(string message , unsigned short maxlength){
+    int length ;
+    cout<<message ; 
+    do{
+        cin>>length ;
+        if(length>maxlength||length<=0){
+            cout<<"Error!!\nPlease enter the length in range from 1 to "<<maxlength<<".\n" ;
+        }
+
+    }while(length>maxlength||length<=0);
+    return (unsigned short)length ;
+}
+int RandomNumber(int from ,int to){
+    return (rand()%(to-from+1)+from);
+}
+void FillRandomElements (unsigned int array[100],unsigned short length){
+      for(unsigned short i =0;i<length;i++){
+        array[i]=RandomNumber(1,100) ;
+       } ;
+}
+void PrintArray (unsigned int array[100],unsigned short length){
+    cout<<"[ " ;
+     for(unsigned short i =0;i<length;i++){
+       cout<< array[i]<<" ";
+       } ;
+    cout<<"]" ;
+}
+unsigned int ReadPositiveNumberInRange(unsigned int from , unsigned int to,string message)
+{    int number ;
+    cout<<message ;
+    do{
+        cin>> number ;
+        if(number<from||number>to){
+            cout<<"Erorr!!\n" ;
+            cout<<"Please enter number in frange from "<<from<<" to "<<to<<" .\n" ;
+        }
+    }while (number<from||number>to) ;
+    return (unsigned)number ;
+}
+short  NumberPositionInArray (unsigned int array[100],unsigned short length,unsigned int number ){
+    for(unsigned short i = 0 ; i<length ;i++){
+        if(array[i]==number){
+            return i ;
+        }
+    }
+    return -1;
+
+}
+bool IsNumberInArray (unsigned int array[100],unsigned short length,unsigned int number ){
+    return(NumberPositionInArray (array, length,number )!=-1) ;
+  
+}
+int main (){
+    srand((unsigned)time(NULL));
+    unsigned int x[100];
+    unsigned short length = ReadArrayLength("Enter number of elements in array (max 100): \n",100); ;
+    FillRandomElements(x,length) ;
+    cout<<"Array elements : " ;
+    PrintArray(x,length) ;
+    cout<<endl ;
+    unsigned int searchnumber = ReadPositiveNumberInRange (1,100,"Please enter a number to search for : ") ;
+    cout <<"Number you are Looking for is "<<searchnumber<<"\n" ;
+      if(IsNumberInArray(x,length,searchnumber)){
+        cout<<"Yes, The number is found :-)\n" ;
+    }else{
+        cout<<"No, The number is not found :-(\n" ;
+    }
+    return 0 ;
+}
