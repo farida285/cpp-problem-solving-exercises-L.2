@@ -4,9 +4,9 @@ function*/
 #include <cfloat>
 #include <cmath>
 using namespace std ;
-float ReadFloatNumber (string massage){
+float ReadFloatNumber (string message){
     float number ;
-    cout<<massage<<"\n";
+    cout<<message<<"\n";
     do{
         cin>> number ;
         if(number>FLT_MAX||number<-FLT_MAX){
