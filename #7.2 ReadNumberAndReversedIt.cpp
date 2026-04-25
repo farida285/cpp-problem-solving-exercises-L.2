@@ -3,9 +3,9 @@
 #include <cmath>
 #include <string>
 using namespace std ;
-unsigned int ReadPositiveNumber (string massege){
+unsigned int ReadPositiveNumber (string message){
     int  n ;
-    cout<<massege<<"\n";
+    cout<<message<<"\n";
     do{
     cin>> n ;
     if(n<=0){
